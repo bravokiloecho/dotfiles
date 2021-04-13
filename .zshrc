@@ -109,7 +109,7 @@ alias code="/Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resourc
 alias cod='code .'
 
 # EDIT DOTFILES in VS CODE
-alias zasher="cd ~ && code /Users/benelwyn/dotfiles/.zshrc"
+alias zasher="cd /Users/benelwyn/dotfiles && code ."
 alias gitter="cd ~ && code .gitconfig"
 
 # GIT COMMANDS
