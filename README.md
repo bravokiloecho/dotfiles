@@ -10,7 +10,7 @@ First clone the repo into your home directory:
 cd ~ && git clone git@github.com:bravokiloecho/dotfiles.git
 ```
 
-Then create a symlink to the ZSH config that lives in this repo:
+Then create symlinks to the config files that lives in this repo:
 
 ```
 ln -s ~/dotfiles/.zshrc ~/.zshrc
