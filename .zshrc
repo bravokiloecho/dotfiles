@@ -122,7 +122,7 @@ alias gpf='git push --force'
 alias gadd='git add -A :/'
 alias gph='git push heroku'
 alias gpw='git push web'
-alias gcm='git checkout master'
+alias gcm='git checkout main'
 alias gcd='git checkout dev'
 
 # MISC. HELPERS
