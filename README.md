@@ -23,3 +23,7 @@ If these files already exist, I reccommend deleting the originals and creating a
 mv ~/.zshrc ~/.zshrc_backup
 mv ~/.gitconfig ~/.gitconfig_backup
 ```
+
+## Requirements
+
+The ZSH config requires [ZSH Marks](https://github.com/jocelynmallon/zshmarks) to be installed.
