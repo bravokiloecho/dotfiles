@@ -118,6 +118,7 @@ alias gc='git commit -m' # requires you to type a commit message
 alias gca='commit -am'
 alias ga='git add -A :/ && git commit --amend --no-edit' # Amend previous commit with new changes
 alias gp='git push'
+alias gpf='git push --force'
 alias gadd='git add -A :/'
 alias gph='git push heroku'
 alias gpw='git push web'
