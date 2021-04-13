@@ -1,0 +1,12 @@
+[user]
+	email = ben@elwyn.co
+	name = Benjamin E
+[alias]
+	ca = commit -am
+	co = checkout
+[push]
+	default = simple
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
