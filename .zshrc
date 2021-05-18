@@ -105,12 +105,12 @@ export PATH=${PATH}:~/.composer/vendor/bin
 
 # VS CODE
 # #######
-alias code="/Applications/Visual\ Studio\ Code\ -\ Insiders.app/Contents/Resources/app/bin/code"
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias cod='code .'
 
 # EDIT DOTFILES in VS CODE
 alias zasher="cd /Users/benelwyn/dotfiles && code ."
-alias gitter="cd ~ && code .gitconfig"
+alias gitter="cd /Users/benelwyn/dotfiles && code ."
 
 # GIT COMMANDS
 alias gs='git status'
