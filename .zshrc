@@ -104,7 +104,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=${PATH}:~/.composer/vendor/bin
 
 # GITHUB Packages token
-export GITHUB_PACKAGES_TOKEN="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"
+export GITHUB_PACKAGES_TOKEN="xxxx"
 
 # VS CODE
 # #######
