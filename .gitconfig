@@ -1,14 +1,17 @@
 [user]
 	email = ben@elwyn.co
-	name = Benjamin E
+	name = Benjamin Elwyn
 [alias]
 	ca = commit -am
 	co = checkout
+	graph = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --date-order
 [push]
-	default = simple
+	default = current
 [init]
 	defaultBranch = main
 [pull]
-	rebase = false
+	rebase = true
 [credential]
 	helper = osxkeychain
+[rebase]
+	autoStash = true

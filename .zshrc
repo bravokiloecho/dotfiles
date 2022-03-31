@@ -103,14 +103,17 @@ source $ZSH/oh-my-zsh.sh
 # ENABLE COMPOSER GLOBALLY
 export PATH=${PATH}:~/.composer/vendor/bin
 
+# GITHUB Packages token
+export GITHUB_PACKAGES_TOKEN="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"
+
 # VS CODE
 # #######
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
 alias cod='code .'
 
 # EDIT DOTFILES in VS CODE
-alias zasher="cd /Users/benelwyn/dotfiles && code ."
-alias gitter="cd /Users/benelwyn/dotfiles && code ."
+alias zasher="cd /Users/benelwyn/repos_personal/dotfiles && code ."
+alias gitter="cd /Users/benelwyn/repos_personal/dotfiles && code ."
 
 # GIT COMMANDS
 alias gs='git status'
@@ -146,5 +149,18 @@ precmd() {
   echo -ne "\033]0;${PWD##*/}\007"
 }
 fi
-
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/benelwyn/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/benelwyn/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/benelwyn/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/benelwyn/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
