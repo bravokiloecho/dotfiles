@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/benelwyn/.oh-my-zsh"
+export ZSH="/Users/ben/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,8 +112,13 @@ alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/co
 alias cod='code .'
 
 # EDIT DOTFILES in VS CODE
-alias zasher="cd /Users/benelwyn/repos_personal/dotfiles && code ."
-alias gitter="cd /Users/benelwyn/repos_personal/dotfiles && code ."
+alias zasher="cd /Users/ben && code .zshrc"
+alias gitter="cd /Users/ben && code .gitconfig"
+
+# CHROME
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+alias chromium="/Applications/Chromium.app/Contents/MacOS/Chromium"
 
 # GIT COMMANDS
 alias gs='git status'
@@ -128,8 +133,13 @@ alias gpw='git push web'
 alias gcm='git checkout main'
 alias gcd='git checkout dev'
 
+# SWITCH GIT USER
+alias git-here='ssh-add -D && ssh-add ~/.ssh/id_rsa_writinglight'
+alias git-me='ssh-add -D && ssh-add ~/.ssh/id_rsa_bravokiloecho'
+
 # MISC. HELPERS
 alias o.='open .'
+alias pycon='python3 -m http.server'
 
 # ZSHMARK CONFIG
 # https://github.com/jocelynmallon/zshmarks
@@ -138,29 +148,48 @@ alias s="bookmark"
 alias d="deletemark"
 alias p="showmarks"
 alias l="showmarks"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# NVM
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # SHOW DIR PATH in tab title
 # https://apple.stackexchange.com/a/377319
-if [ $ITERM_SESSION_ID ]; then
-precmd() {
-  echo -ne "\033]0;${PWD##*/}\007"
-}
-fi
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/benelwyn/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/benelwyn/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/benelwyn/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/benelwyn/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
+function set_name () {
+    echo -ne "\033]0;${PWD##*/}\007"
+}
+if [ -n "$ZSH_VERSION" ]; then
+    precmd_functions+=(set_name)
+    preexec_functions+=(set_name)
+    elif [ -n "$BASH_VERSION" ]; then
+    PROMPT_COMMAND='set_name'
+fi
+
+# YOUTUBE DL
+# https://github.com/yt-dlp/yt-dlp
+
+alias yt-dl="yt-dlp"
+
+# DONWLOAD WEBSITE
+alias download_site="wget -r -p -k -e robots=off --html-extension --convert-links --restrict-file-names=windows -U Mozilla"
+
+# PYTHON
+alias python=python3
+alias pip=pip3
+
+# The next line updates PATH for egcli command.
+if [ -f '/Users/ben/Library/Group Containers/FELUD555VC.group.com.egnyte.DesktopApp/CLI/egcli.inc' ]; then . '/Users/ben/Library/Group Containers/FELUD555VC.group.com.egnyte.DesktopApp/CLI/egcli.inc'; fi
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
+
+# pnpm
+export PNPM_HOME="/Users/ben/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
